@@ -4,20 +4,23 @@
 
 Rectangle::Rectangle(double x, double y, double length, double height) : x(x), y(y), length(length), height(height) {}
 
+
 double Rectangle::getX() const { return this->x; }
 double Rectangle::getY() const { return this->y; }
 
+
 //Globalna funkcija koja vraca manji od dva broja
-double min(const double x, const double y)
+inline const double min(const double x, const double y)
 {
     return (x < y) ? x : y;
 }
 
 //Globalna funkcija koja vraca manji od dva broja
-double max(const double x, const double y)
+inline const double max(const double x, const double y)
 {
     return (x > y) ? x : y;
 }
+
 
 double Rectangle::getLength() const {
     return this->length;
@@ -151,13 +154,22 @@ Rectangle operator&(const Rectangle& r1, const Rectangle& r2) {
     return r;
 }
 
-//Globalna funkcija (prijatelj klasi Rectangle), vrsi provjeru jednakosti dva pravougaonika
-bool operator==(const Rectangle& r1, const Rectangle& r2) {
 
-    if (r1.x == r2.x && r1.y == r2.y && r1.height == r2.height && r1.length == r2.length)
+//Funkcija clanica koja vrsi provjeru jednakosti dva pravougaonika
+bool Rectangle::operator==(const Rectangle& r) const
+{
+
+    if (this->x == r.x && this->y == r.y && this->height == r.height && this->length == r.length)
         return true;
     else return false;
 }
+
+bool Rectangle::operator!=(const Rectangle& r) const
+{
+    if (*this == r) return false;
+    else return true;
+}
+
 
 //Ispis pravougaonika
 void Rectangle::printRectangle()

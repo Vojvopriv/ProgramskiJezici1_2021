@@ -26,6 +26,7 @@ Set::~Set()
     delete[] this->arr;
 }
 
+
 //Dodavanje pravougaonika u set
 void Set::operator+=(const Rectangle& r)
 {
@@ -67,7 +68,8 @@ bool Set::operator-=(const Rectangle& r)
 
 }
 
-//Provjera jednakosti
+
+//Provjere jednakosti
 bool Set::operator==(const Set& s) const 
 {
     if (this->arraySize != s.arraySize)
@@ -90,6 +92,37 @@ bool Set::operator==(const Set& s) const
         return false;
 }
 
+bool Set::operator!=(const Set& s) const
+{
+    if (*this == s) return false;
+    else return true;
+}
+
+bool Set::operator<(const Set& s) const
+{
+    if (this->arraySize < s.arraySize) return true;
+    else return false;
+}
+
+bool Set::operator<=(const Set& s) const
+{
+    if (this->arraySize <= s.arraySize) return true;
+    else return false;
+}
+
+bool Set::operator>(const Set& s) const
+{
+    if (this->arraySize > s.arraySize) return true;
+    else return false;
+}
+
+bool Set::operator>=(const Set& s) const
+{
+    if (this->arraySize >= s.arraySize) return true;
+    else return false;
+}
+
+
 void Set::realloc() 
 {
     this->realloc(this->capacity > 0 ? this->capacity * 2 : 1);
@@ -106,7 +139,6 @@ void Set::realloc(int newCap)
     delete this->arr;
     this->arr = newArray;
 }
-
 
 
 bool Set::isInSet(const Rectangle& r, int* index) const
@@ -145,6 +177,7 @@ Set Set::copySet() const
 {
     return Set(this->arraySize, this->capacity, this->arr);
 }
+
 
 //Ispisuje centar, duzinu i sirinu svakog pravougaonika u setu
 std::ostream& operator<<(std::ostream& os, const Set& s)

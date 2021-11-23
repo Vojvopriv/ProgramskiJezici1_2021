@@ -17,10 +17,14 @@ public:
 
     void operator+=(const Rectangle&);
     bool operator-=(const Rectangle&);
-
     friend std::ostream& operator<<(std::ostream&, const Set&);
+    
     bool operator==(const Set&) const;
-
+    bool operator!=(const Set&) const;
+    bool operator>(const Set&) const;
+    bool operator>=(const Set&) const;
+    bool operator<(const Set&) const;
+    bool operator<=(const Set&) const;
 
 private:
     void realloc();

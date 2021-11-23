@@ -18,7 +18,7 @@ int main() {
     Set s1;
 
     s1 += r1; s1 += r2; s1 -= r1;
-
+    
     std::cout << s1;
 
     return 0;
