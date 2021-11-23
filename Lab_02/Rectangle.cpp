@@ -44,6 +44,19 @@ Rectangle operator+(const Rectangle &a, const Rectangle &b) {
     return r;
 }
 
+void Rectangle::operator+= (const Rectangle& r2)
+{
+    Rectangle r;
+
+    r.x = min(this->x, r2.x);
+    r.y = min(this->y, r2.y);
+
+    r.length = max(this->x + this->length, r2.x + r2.length) - r.x;
+    r.height = max(this->y + this->height, r2.y + r2.height) - r.y;
+
+    *this = r;
+}
+
 
 //Globalna funkcija (prijatelj klasi Rectangle) koja skalira pravougaonik u odnosu na centar - definisana na 3 nacina
 void operator*=(Rectangle &r, const double d) {
