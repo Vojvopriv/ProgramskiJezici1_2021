@@ -28,7 +28,7 @@ Set::~Set()
 
 
 //Dodavanje pravougaonika u set
-const Set& Set::operator+=(const Rectangle& r)
+Set& Set::operator+=(const Rectangle& r)
 {
     if (isInSet(r)) {
         std::cout << "Nemoguce dodati u set, vec postoji dati pravougaonik!" << std::endl;
@@ -46,7 +46,7 @@ const Set& Set::operator+=(const Rectangle& r)
 }
 
 //Brisanje pravougaonika
-const Set& Set::operator-=(const Rectangle& r) 
+Set& Set::operator-=(const Rectangle& r) 
 {
     int index;
     if (this->arraySize == 0 || !isInSet(r, &index)) {

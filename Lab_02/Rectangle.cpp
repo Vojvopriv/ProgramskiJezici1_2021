@@ -44,7 +44,7 @@ Rectangle operator+(const Rectangle &a, const Rectangle &b) {
     return r;
 }
 
-const Rectangle& Rectangle::operator+= (const Rectangle& r2)
+Rectangle& Rectangle::operator+= (const Rectangle& r2)
 {
     Rectangle r;
 
@@ -61,7 +61,7 @@ const Rectangle& Rectangle::operator+= (const Rectangle& r2)
 
 
 //Globalna funkcija (prijatelj klasi Rectangle) koja skalira pravougaonik u odnosu na centar - definisana na 3 nacina
-const Rectangle& operator*=(Rectangle &r, const double d) {
+Rectangle& operator*=(Rectangle &r, const double d) {
 
     double xcentar = r.x + r.length / 2;
     double ycentar = r.y + r.height / 2;
@@ -171,7 +171,7 @@ Rectangle operator&(const Rectangle& r1, const Rectangle& r2) {
     return r;
 }
 
-const Rectangle& Rectangle::operator&=(const Rectangle& r)
+Rectangle& Rectangle::operator&=(const Rectangle& r)
 {
     *this = *this & r;
 
@@ -195,7 +195,7 @@ bool Rectangle::operator!=(const Rectangle& r) const
 }
 
 
-const Rectangle& Rectangle::operator=(const Rectangle& r)
+Rectangle& Rectangle::operator=(const Rectangle& r)
 {
     this->x = r.x;
     this->y = r.y;

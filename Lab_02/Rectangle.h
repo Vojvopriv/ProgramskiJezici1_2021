@@ -19,16 +19,16 @@ public:
     void printRectangle();
 
     friend Rectangle operator+ (const Rectangle&, const Rectangle&);
-    const Rectangle& operator+= (const Rectangle&);
+    Rectangle& operator+= (const Rectangle&);
 
     friend Rectangle operator* (double, const Rectangle&);
     friend Rectangle operator* (const Rectangle&, double);
-    friend const Rectangle& operator*= (Rectangle&, const double);
+    friend Rectangle& operator*= (Rectangle&, const double);
     
     friend Rectangle operator& (const Rectangle&, const Rectangle&);
-    const Rectangle& operator&= (const Rectangle&);
+    Rectangle& operator&= (const Rectangle&);
 
-    const Rectangle& operator= (const Rectangle&);   // const return value -- Vraca rvalue i time zabranjuje visestruke dodjele i neke slozene izraze 
+    Rectangle& operator= (const Rectangle&);   // const return value -- Vraca rvalue i time zabranjuje visestruke dodjele i neke slozene izraze 
                                                      // pri pozivu operatora
 
 
