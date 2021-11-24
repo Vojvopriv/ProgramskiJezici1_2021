@@ -28,8 +28,8 @@ public:
     friend Rectangle operator& (const Rectangle&, const Rectangle&);
     const Rectangle& operator&= (const Rectangle&);
 
-    const Rectangle& operator= (const Rectangle&);
-
+    const Rectangle& operator= (const Rectangle&);   // const return value -- Vraca rvalue i time zabranjuje visestruke dodjele i neke slozene izraze 
+                                                     // pri pozivu operatora
 
 
     bool operator== (const Rectangle&) const;
