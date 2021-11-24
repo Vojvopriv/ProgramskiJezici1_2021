@@ -44,7 +44,7 @@ Rectangle operator+(const Rectangle &a, const Rectangle &b) {
     return r;
 }
 
-void Rectangle::operator+= (const Rectangle& r2)
+const Rectangle& Rectangle::operator+= (const Rectangle& r2)
 {
     Rectangle r;
 
@@ -55,11 +55,13 @@ void Rectangle::operator+= (const Rectangle& r2)
     r.height = max(this->y + this->height, r2.y + r2.height) - r.y;
 
     *this = r;
+    
+    return *this;
 }
 
 
 //Globalna funkcija (prijatelj klasi Rectangle) koja skalira pravougaonik u odnosu na centar - definisana na 3 nacina
-void operator*=(Rectangle &r, const double d) {
+const Rectangle& operator*=(Rectangle &r, const double d) {
 
     double xcentar = r.x + r.length / 2;
     double ycentar = r.y + r.height / 2;
@@ -71,6 +73,8 @@ void operator*=(Rectangle &r, const double d) {
     
     r.x = xcentar - r.length / 2;
     r.y = ycentar - r.height / 2;
+    
+    return r;
 }
 
 Rectangle operator*(const Rectangle& r, double d) {
@@ -167,6 +171,13 @@ Rectangle operator&(const Rectangle& r1, const Rectangle& r2) {
     return r;
 }
 
+const Rectangle& Rectangle::operator&=(const Rectangle& r)
+{
+    *this = *this & r;
+
+    return *this;
+}
+
 
 //Funkcija clanica koja vrsi provjeru jednakosti dva pravougaonika
 bool Rectangle::operator==(const Rectangle& r) const
@@ -184,10 +195,21 @@ bool Rectangle::operator!=(const Rectangle& r) const
 }
 
 
+const Rectangle& Rectangle::operator=(const Rectangle& r)
+{
+    this->x = r.x;
+    this->y = r.y;
+    this->height = r.height;
+    this->length = r.length;
+
+    return *this;
+}
+
+
 //Ispis pravougaonika
 void Rectangle::printRectangle()
 {
     std::cout << "Pocetna koordinata: (x,y) = (" << this->x << ", " << this->y << ") " << std::endl;
-    std::cout << "Duzina: " << this->length << "  Sirina: " << this->height << std::endl;
+    std::cout << "Duzina: " << this->length << "  Sirina: " << this->height << std::endl << std::endl;
 }
 

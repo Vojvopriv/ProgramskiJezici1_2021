@@ -15,8 +15,8 @@ public:
     Set(const Set&);
     ~Set();
 
-    void operator+=(const Rectangle&);
-    bool operator-=(const Rectangle&);
+    const Set& operator+=(const Rectangle&);
+    const Set& operator-=(const Rectangle&);
     friend std::ostream& operator<<(std::ostream&, const Set&);
     
     bool operator==(const Set&) const;

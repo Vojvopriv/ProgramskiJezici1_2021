@@ -19,14 +19,23 @@ public:
     void printRectangle();
 
     friend Rectangle operator+ (const Rectangle&, const Rectangle&);
-    void operator+= (const Rectangle&);
+    const Rectangle& operator+= (const Rectangle&);
 
     friend Rectangle operator* (double, const Rectangle&);
     friend Rectangle operator* (const Rectangle&, double);
-    friend void operator*= (Rectangle&, const double);
+    friend const Rectangle& operator*= (Rectangle&, const double);
     
     friend Rectangle operator& (const Rectangle&, const Rectangle&);
+    const Rectangle& operator&= (const Rectangle&);
+
+    const Rectangle& operator= (const Rectangle&);
+
+
 
     bool operator== (const Rectangle&) const;
     bool operator!= (const Rectangle&) const;
+    //bool operator> (const Rectangle&) const;
+    //bool operator>= (const Rectangle&) const;
+    //bool operator< (const Rectangle&) const;
+    //bool operator<= (const Rectangle&) const;
 };
