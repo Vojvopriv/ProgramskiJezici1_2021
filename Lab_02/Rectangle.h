@@ -16,6 +16,7 @@ public:
     double getLength() const;
     double getHeight() const;
 
+    // Demonstrativni ispis
     void printRectangle();
 
     friend Rectangle operator+ (const Rectangle&, const Rectangle&);

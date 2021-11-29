@@ -15,7 +15,7 @@ inline const double min(const double x, const double y)
     return (x < y) ? x : y;
 }
 
-//Globalna funkcija koja vraca manji od dva broja
+//Globalna funkcija koja vraca veci od dva broja
 inline const double max(const double x, const double y)
 {
     return (x > y) ? x : y;
@@ -182,7 +182,6 @@ Rectangle& Rectangle::operator&=(const Rectangle& r)
 //Funkcija clanica koja vrsi provjeru jednakosti dva pravougaonika
 bool Rectangle::operator==(const Rectangle& r) const
 {
-
     if (this->x == r.x && this->y == r.y && this->height == r.height && this->length == r.length)
         return true;
     else return false;
@@ -195,6 +194,7 @@ bool Rectangle::operator!=(const Rectangle& r) const
 }
 
 
+// Isto ovo radi i podrazumijevani operator=
 Rectangle& Rectangle::operator=(const Rectangle& r)
 {
     this->x = r.x;

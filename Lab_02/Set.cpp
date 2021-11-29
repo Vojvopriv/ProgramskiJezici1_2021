@@ -75,7 +75,7 @@ Set& Set::operator-=(const Rectangle& r)
 bool Set::operator==(const Set& s) const 
 {
     if (this->arraySize != s.arraySize)
-        return false;
+        return false;                         // Ako su razlicitih dimenzija, nisu jednaki
 
     int br = 0;
     for (int i = 0; i < this->arraySize; i++) {
